@@ -108,6 +108,17 @@ class TestCase extends \WPAcceptance\PHPUnit\TestCase {
 			'original_edit_url' => $from_blog_slug . '/wp-admin/post.php?post=' . $original_post_id . '&action=edit',
 		];
 
+		$I->moveTo( '/wp-admin/plugins.php' );
+		try {
+			$element = $I->getElement( '[data-slug="auto-publish-pulled-posts"] .deactivate a' );
+			if ( $element ) {
+				$I->click( $element );
+				$I->waitUntilElementVisible( '#message' );
+			}
+		} catch ( \Exception $e ) {}
+		$I->click( '[data-slug="auto-publish-pulled-posts"] .activate a' );
+		$I->waitUntilElementVisible( '#message' );
+
 		$I->moveTo( $to_blog_slug . 'wp-admin/admin.php?page=pull' );
 
 		if ( $use_connection ) {
