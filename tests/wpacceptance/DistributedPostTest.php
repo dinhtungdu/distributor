@@ -19,6 +19,8 @@ class DistributedPost extends \TestCase {
 
 		$I->loginAs( 'wpsnapshots' );
 
+		$I->waitUntilNavigation();
+
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
 		$I->waitUntilNavigation();
