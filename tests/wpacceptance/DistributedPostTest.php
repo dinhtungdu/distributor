@@ -19,11 +19,9 @@ class DistributedPost extends \TestCase {
 
 		$I->loginAs( 'wpsnapshots' );
 
-		$I->waitUntilNavigation();
-
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
-		$I->waitUntilNavigation();
+		$I->waitUntilElementVisible( 'body.post-php' );;
 
 		// Don't test in block editor.
 		$editor_has_blocks =  $this->editorHasBlocks( $I );
