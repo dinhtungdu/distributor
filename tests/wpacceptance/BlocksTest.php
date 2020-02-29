@@ -179,7 +179,7 @@ class BlocksTests extends \TestCase {
 		$source = $I->getPageSource();
 		$this->assertTrue(
 			(bool) preg_match( '<!-- wp:paragraph -->', stripslashes( $source ) ),
-			'Blocks were not pushed properly over an external connection'
+			'Source content: ' . stripslashes( $source )
 		);
 	}
 
