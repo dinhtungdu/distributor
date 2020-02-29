@@ -108,7 +108,7 @@ class TestCase extends \WPAcceptance\PHPUnit\TestCase {
 			'original_edit_url' => $from_blog_slug . '/wp-admin/post.php?post=' . $original_post_id . '&action=edit',
 		];
 
-		$I->moveTo( '/wp-admin/plugins.php' );
+		$I->moveTo( '/wp-admin/network/plugins.php' );
 		try {
 			$element = $I->getElement( '[data-slug="auto-publish-pulled-posts"] .deactivate a' );
 			if ( $element ) {
@@ -163,7 +163,11 @@ class TestCase extends \WPAcceptance\PHPUnit\TestCase {
 	 *
 	 * @param \WPAcceptance\PHPUnit\Actor $actor The actor.
 	 */
+
 	protected function editorHasBlocks ( $actor ) {
+		$actor->moveTo( '/wp-admin/post.php?post=40&action=edit' );
+		$actor->waitUntilElementVisible( 'body.post-php' );;
+
 		$body = $actor->getElement( 'body' );
 		$msg = $actor->elementToString( $body );
 		return ( strpos( $msg, 'block-editor-page' ) );
