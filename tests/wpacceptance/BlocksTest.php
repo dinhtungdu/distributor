@@ -134,9 +134,9 @@ class BlocksTests extends \TestCase {
 		// Check that the blocks are intact by looking for the paragraph comment.
 		$source = $I->getPageSource();
 
-		$this->assertFalse(
+		$this->assertTrue(
 			(bool) preg_match( '<!-- wp:paragraph -->', stripslashes( $source ) ),
-			'Source content: ' . stripslashes( $source )
+			'Blocks were not pushed properly over an external connection'
 		);
 	}
 
