@@ -14,7 +14,7 @@ class BlocksTests extends \TestCase {
 	public function addContentToTestPost( $I ) {
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
-		$I->waitUntilElementVisible( '.editor-default-block-appender__content' );
+		sleep( 5 );
 
 		$this->dismissNUXTip( $I );
 		usleep( 500 );
