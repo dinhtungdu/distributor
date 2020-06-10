@@ -55,6 +55,10 @@ class BlocksTests extends \TestCase {
 		);
 	}
 
+	public function testDummy() {
+		$this->assertTrue( true );
+	}
+
 	/**
 	 * Test network pulling content with blocks.
 	 */
