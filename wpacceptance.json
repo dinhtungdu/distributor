@@ -1,5 +1,10 @@
 {
-    "snapshot_id": "3593222a181f0f91824947dbd06985d5",
+    "snapshots": [
+      {
+        "snapshot_name": "WP 5.4.2",
+        "snapshot_id": "803989004f4b101a644ebfe9bb67e712"
+      }
+    ],
     "name": "distributor",
     "exclude": [
         ".\/node_modules"
