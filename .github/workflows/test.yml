@@ -35,7 +35,7 @@ jobs:
       run: ./vendor/bin/wpacceptance run --screenshot_on_failure
 
     - name: Dir check
-      run: ls
+      run: ls screenshots/
       if: always()
 
     - uses: actions/upload-artifact@v2
