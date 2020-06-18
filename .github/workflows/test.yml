@@ -34,6 +34,9 @@ jobs:
     - name: Test
       run: ./vendor/bin/wpacceptance run --screenshot_on_failure
 
+    - name: Pre check
+      run: ls
+
     - uses: actions/upload-artifact@v2
       with:
         path: screenshots/
