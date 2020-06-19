@@ -32,7 +32,7 @@ jobs:
       run: ./vendor/bin/wpsnapshots configure 10up --aws_key=${{ secrets.AWS_ACCESS_KEY }} --aws_secret=${{ secrets.SECRET_ACCESS_KEY }} --user_name=wp-acceptance --user_email=travis@10up.com
 
     - name: Test
-      run: ./vendor/bin/wpacceptance run --screenshot_on_failure -vvv
+      run: ./vendor/bin/wpacceptance run --screenshot_on_failure
 
     - name: Dir check
       run: ls screenshots/

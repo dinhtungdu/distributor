@@ -14,6 +14,8 @@ class BlocksTests extends \TestCase {
 	public function addContentToTestPost( $I ) {
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
+		$this->assertTrue( false );
+
 		try {
 			$I->getElement( '.editor-default-block-appender__content' );
 			$I->waitUntilElementVisible( '.editor-default-block-appender__content' );
