@@ -14,8 +14,6 @@ class BlocksTests extends \TestCase {
 	public function addContentToTestPost( $I ) {
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
-		$this->assertTrue( false );
-
 		try {
 			$I->getElement( '.editor-default-block-appender__content' );
 			$I->waitUntilElementVisible( '.editor-default-block-appender__content' );
@@ -88,6 +86,9 @@ class BlocksTests extends \TestCase {
 		if ( ! $this->editorHasBlocks( $I ) ) {
 			return;
 		}
+
+		$this->assertTrue( false );
+
 		$this->addContentToTestPost( $I );
 		$post_info = $this->pullPost( $I, 40, 'two', '' );
 		$I->moveTo( $post_info['distributed_edit_url'] );
