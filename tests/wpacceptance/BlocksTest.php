@@ -14,14 +14,16 @@ class BlocksTests extends \TestCase {
 	public function addContentToTestPost( $I ) {
 		$I->moveTo( '/wp-admin/post.php?post=40&action=edit' );
 
+		$this->dismissWelcomeModal( $I );
+
+		$this->disableFullscreenEditor( $I );
+
 		try {
 			$I->getElement( '.editor-default-block-appender__content' );
 			$I->waitUntilElementVisible( '.editor-default-block-appender__content' );
 		} catch( \Exception $e ) {
 			$I->waitUntilElementVisible( '.block-editor-default-block-appender__content' );
 		}
-
-		$this->disableFullscreenEditor( $I );
 
 		$this->dismissNUXTip( $I );
 
@@ -87,13 +89,10 @@ class BlocksTests extends \TestCase {
 			return;
 		}
 
-		$this->assertTrue( false );
-
 		$this->addContentToTestPost( $I );
 		$post_info = $this->pullPost( $I, 40, 'two', '' );
 		$I->moveTo( $post_info['distributed_edit_url'] );
 		$I->waitUntilElementVisible( '#wpadminbar' );
-		$this->dismissNUXTip( $I );
 
 		// Grab the post content.
 		$source = $I->getPageSource();

@@ -179,4 +179,15 @@ class TestCase extends \WPAcceptance\PHPUnit\TestCase {
 
 		$actor->executeJavascript( $script );
 	}
+
+	/**
+	 * Dismiss the Welcome Modal.
+	 *
+	 * @param \WPAcceptance\PHPUnit\Actor $actor The actor.
+	 */
+	protected function dismissWelcomeModal( $actor ) {
+		$script = 'if ( !! wp.data && wp.data.select( "core/edit-post" ).isFeatureActive( "welcomeGuide" ) ) { wp.data.dispatch( "core/edit-post" ).toggleFeature( "welcomeGuide" ); }';
+
+		$actor->executeJavascript( $script );
+	}
 }
